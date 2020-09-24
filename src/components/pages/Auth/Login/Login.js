@@ -2,38 +2,40 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-// import { UserContext } from '../../App';
 import { useHistory, useLocation } from 'react-router-dom';
+import { UserContext } from '../../../../App';
 // import { handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../Auth/LoginManager';
 import fb from "../../../../images/icon/fb.png";
 import google from "../../../../images/icon/google.png"
+import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, initializeLoginFramework, signInWithEmailAndPassword } from '../LoginManager';
 import "./Login.css"
 function Login() {
-    // let history = useHistory();
-    // let location = useLocation();
+    let history = useHistory();
+    let location = useLocation();
 
-    // let { from } = location.state || { from: { pathname: "/" } }
+    let { from } = location.state || { from: { pathname: "/" } }
 
     // const [newUser, setNewUser] = useState(false);
-    // const [user, setUser] = useState({
-    //     isSignedIn: false,
-    //     name: '',
-    //     email: '',
-    //     photoURL: '',
-    //     error: '',
-    //     success: false
-    // })
+    const [user, setUser] = useState({
+        isSignedIn: false,
+        name: '',
+        email: '',
+        photoURL: '',
+        error: '',
+        success: false
+    })
 
-    // initializeLoginFramework();
-    // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    initializeLoginFramework();
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
-    // const googleSignIn = () => {
-    //     handleGoogleSignIn()
-    //         .then(res => {
-    //             handleResponse(res, true);
+    const googleSignIn = () => {
+        handleGoogleSignIn()
+            .then(res => {
+                handleResponse(res, true);
+                console.log(res);
 
-    //         })
-    // }
+            })
+    }
 
     // const signOut = () => {
     //     handleSignOut()
@@ -43,63 +45,66 @@ function Login() {
     //         })
     // }
 
-    // const handleResponse = (res, redirect) => {
-    //     setUser(res);
-    //     setLoggedInUser(res);
-    //     if (redirect) {
-    //         history.replace(from);
-    //     }
-    // }
+    const handleResponse = (res, redirect) => {
+        setUser(res);
+        setLoggedInUser(res);
+        if (redirect) {
+            history.replace(from);
+        }
+    }
 
-    // const fbSignIn = () => {
-    //     handleFbSignIn()
-    //         .then(res => {
-    //             handleResponse(res, true);
+    const fbSignIn = () => {
+        handleFbSignIn()
+            .then(res => {
+                handleResponse(res, true);
 
-    //         })
-    // }
-    // const handleBlur = (e) => {
-    //     let isFieldValid = true;
+            })
+    }
+    const handleBlur = (e) => {
+        let isFieldValid = true;
 
-    //     if (e.target.name === 'email') {
-    //         isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
-    //     }
-    //     if (e.target.name === 'password') {
-    //         const isPasswordValid = e.target.value.length > 6;
-    //         const passwordHasNumber = /\d{1}/.test(e.target.value);
-    //         isFieldValid = isPasswordValid && passwordHasNumber;
-    //     }
-    //     if (isFieldValid) {
-    //         const newUserInfo = { ...user };
-    //         newUserInfo[e.target.name] = e.target.value;
-    //         setUser(newUserInfo);
-    //     }
-    // }
+        if (e.target.name === 'email') {
+            isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
+        }
+        if (e.target.name === 'password') {
+            const isPasswordValid = e.target.value.length > 6;
+            const passwordHasNumber = /\d{1}/.test(e.target.value);
+            isFieldValid = isPasswordValid && passwordHasNumber;
+        }
+        if (isFieldValid) {
+            const newUserInfo = { ...user };
+            newUserInfo[e.target.name] = e.target.value;
+            setUser(newUserInfo);
+        }
+    }
 
-    // const handleSubmit = (e) => {
-    //     if (newUser && user.email && user.password) {
-    //         createUserWithEmailAndPassword(user.name, user.email, user.password)
-    //             .then(res => {
-    //                 handleResponse(res, true);
+    const handleSubmit = (e) => {
+        if (user.email && user.password) {
+            createUserWithEmailAndPassword(user.name, user.email, user.password)
+                .then(res => {
+                    handleResponse(res, true);
 
-    //             })
-    //     }
+                })
+        }
 
-    //     if (!newUser && user.email && user.password) {
-    //         signInWithEmailAndPassword(user.email, user.password)
-    //             .then(res => {
-    //                 handleResponse(res, true);
+        if (user.email && user.password) {
+            signInWithEmailAndPassword(user.email, user.password)
+                .then(res => {
+                    console.log("signed in with email")
+                    console.log(res)
+                    handleResponse(res, true);
 
-    //             })
+                })
 
-    //     }
-    //     e.preventDefault();
+        }
+        e.preventDefault();
 
-    // }
+    }
 
 
     return (
         <Container>
+            {user.email}
             {/* {
                 user.isSignedIn === true ?
                     <button onClick={signOut}>Sign Out</button> :
@@ -137,7 +142,7 @@ function Login() {
                 user.success &&
                 <p style={{ color: 'green' }}>User  {newUser ? 'craeted' : 'Logged in'} successfully</p>
             } */}
-            <Form id="login-form">
+            <Form id="login-form" onSubmit={handleSubmit}>
                 <h3>Login</h3>
                 <Form.Group controlId="formBasicEmail">
                     <Form.Control type="email" placeholder="Username or Email" />
@@ -156,9 +161,9 @@ function Login() {
                 <br />
                 <p>Don't have an account? <a href="#">Create an account</a></p>
                 <p id="or"><span>or</span></p>
-                <Button><img src={fb} className="company-icon" />Continue with Facebook</Button>
+                <Button><img src={fb} onClick={fbSignIn} className="company-icon" />Continue with Facebook</Button>
                 <br />
-                <Button><img src={google} className="company-icon" />Continue with Google</Button>
+                <Button><img src={google} onClick={googleSignIn} className="company-icon" />Continue with Google</Button>
             </Form>
         </Container>
     );

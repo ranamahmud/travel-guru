@@ -12,6 +12,7 @@ import { useState } from 'react';
 import Home from './components/pages/Home/Home';
 import Login from './components/pages/Auth/Login/Login';
 import CreateAccount from './components/pages/Auth/CreateAccount/CreateAccount';
+import Search from './components/pages/Search/Search';
 // import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/create-account" component={CreateAccount} />
+          <Route path="/search" component={Search} />
 
         </Switch>
 

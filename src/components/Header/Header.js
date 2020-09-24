@@ -11,7 +11,9 @@ const Header = () => {
 
         <Container>
             <Navbar bg="light" variant="light">
-                <Navbar.Brand href="#home"> <img id="logo" src={logo} alt="" /></Navbar.Brand>
+                <Navbar.Brand href="#home">
+                    <Link to="/"><img id="logo" src={logo} alt="" /></Link>
+                </Navbar.Brand>
                 <Form inline>
                     <FormControl id="search-box" type="text" placeholder="Search your Destination..." className="mr-sm-2" />
                 </Form>
@@ -20,7 +22,7 @@ const Header = () => {
                     <Link className="nav-link" to="/destination">Destination</Link>
                     <Link className="nav-link" to="/blog">Blog</Link>
                     <Link className="nav-link" to="/contact">Contact</Link>
-                    <Button>Login</Button>
+                    <Link className="nav-link btn" to="/login">Login</Link>
                 </Nav>
 
             </Navbar>
