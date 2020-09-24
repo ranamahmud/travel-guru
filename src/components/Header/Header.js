@@ -6,10 +6,13 @@ import { UserContext } from '../../App';
 import logo from '../../images/logo.png'
 import './Header.css'
 const Header = () => {
-    // const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     return (
 
         <Container>
+            {
+                <p>Email: {loggedInUser.email}</p>
+            }
             <Navbar bg="light" variant="light">
                 <Navbar.Brand href="#home">
                     <Link to="/"><img id="logo" src={logo} alt="" /></Link>
@@ -22,7 +25,11 @@ const Header = () => {
                     <Link className="nav-link" to="/destination">Destination</Link>
                     <Link className="nav-link" to="/blog">Blog</Link>
                     <Link className="nav-link" to="/contact">Contact</Link>
-                    <Link className="nav-link btn" to="/login">Login</Link>
+                    {
+                        loggedInUser.email !== null ?
+                            <Link className="nav-link btn" to="/login">Login</Link> :
+                            <Link className="nav-link btn" to="/logout">Logout</Link>
+                    }
                 </Nav>
 
             </Navbar>

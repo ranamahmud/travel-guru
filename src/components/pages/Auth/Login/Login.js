@@ -29,6 +29,7 @@ function Login() {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
 
     const googleSignIn = () => {
+        console.log("google clicked")
         handleGoogleSignIn()
             .then(res => {
                 handleResponse(res, true);
@@ -109,12 +110,7 @@ function Login() {
     return (
         <Container>
 
-            {/* {
-                user.isSignedIn === true ?
-                    <button onClick={signOut}>Sign Out</button> :
-                    <button onClick={googleSignIn}>Sign in</button>
-
-            }
+            {/*
             <br />
             <button onClick={fbSignIn}>Sign in Using Facebook</button>
             {
