@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../../App';
 // import { handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../Auth/LoginManager';
 import fb from "../../../../images/icon/fb.png";
@@ -61,31 +61,35 @@ function Login() {
             })
     }
     const handleBlur = (e) => {
+        console.log("64")
+        console.log(e.target.value);
         let isFieldValid = true;
 
-        if (e.target.name === 'email') {
+        if (e.target.id === 'email') {
             isFieldValid = /\S+@\S+\.\S+/.test(e.target.value);
         }
-        if (e.target.name === 'password') {
+        if (e.target.id === 'password') {
             const isPasswordValid = e.target.value.length > 6;
             const passwordHasNumber = /\d{1}/.test(e.target.value);
             isFieldValid = isPasswordValid && passwordHasNumber;
         }
         if (isFieldValid) {
             const newUserInfo = { ...user };
-            newUserInfo[e.target.name] = e.target.value;
+            newUserInfo[e.target.id] = e.target.value;
             setUser(newUserInfo);
         }
     }
 
     const handleSubmit = (e) => {
-        if (user.email && user.password) {
-            createUserWithEmailAndPassword(user.name, user.email, user.password)
-                .then(res => {
-                    handleResponse(res, true);
+        console.log("button clicked");
+        console.log(user.email, user.password)
+        // if (user.email && user.password) {
+        //     createUserWithEmailAndPassword(user.name, user.email, user.password)
+        //         .then(res => {
+        //             handleResponse(res, true);
 
-                })
-        }
+        //         })
+        // }
 
         if (user.email && user.password) {
             signInWithEmailAndPassword(user.email, user.password)
@@ -104,7 +108,7 @@ function Login() {
 
     return (
         <Container>
-            {user.email}
+
             {/* {
                 user.isSignedIn === true ?
                     <button onClick={signOut}>Sign Out</button> :
@@ -144,12 +148,12 @@ function Login() {
             } */}
             <Form id="login-form" onSubmit={handleSubmit}>
                 <h3>Login</h3>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Username or Email" />
+                <Form.Group controlId="email">
+                    <Form.Control type="email" placeholder="Username or Email" onBlur={handleBlur} required />
                 </Form.Group>
 
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" />
+                <Form.Group controlId="password">
+                    <Form.Control type="password" placeholder="Password" onBlur={handleBlur} required />
                 </Form.Group>
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Remember Me" />
@@ -159,7 +163,7 @@ function Login() {
   </Button>
                 <br />
                 <br />
-                <p>Don't have an account? <a href="#">Create an account</a></p>
+                <p>Don't have an account? <Link to="/create-account">Create an account</Link></p>
                 <p id="or"><span>or</span></p>
                 <Button><img src={fb} onClick={fbSignIn} className="company-icon" />Continue with Facebook</Button>
                 <br />
