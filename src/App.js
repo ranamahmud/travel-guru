@@ -10,6 +10,8 @@ import {
 
 import { useState } from 'react';
 import Home from './components/pages/Home/Home';
+import Login from './components/pages/Auth/Login/Login';
+import CreateAccount from './components/pages/Auth/CreateAccount/CreateAccount';
 // import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
@@ -42,8 +44,10 @@ function App() {
           <Route path="*">
             <NotFound />
           </Route> */}
-          <Route exact path="/">    <Home></Home>
-          </Route>
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
+          <Route path="/create-account" component={CreateAccount} />
+
         </Switch>
 
 
