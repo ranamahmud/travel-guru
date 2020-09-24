@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardGroup } from 'react-bootstrap';
-
+import "./Location.css"
 function Location(props) {
     return (
         <div>
