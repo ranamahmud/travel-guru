@@ -13,18 +13,18 @@ const Header = () => {
             <Navbar bg="light" variant="light">
                 <Navbar.Brand href="#home"> <img id="logo" src={logo} alt="" /></Navbar.Brand>
                 <Form inline>
-                    <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                    <FormControl id="search-box" type="text" placeholder="Search your Destination..." className="mr-sm-2" />
                 </Form>
                 <Nav className="ml-auto">
-                    <Nav.Link href="#home">News</Nav.Link>
-                    <Nav.Link href="#features">Destination</Nav.Link>
-                    <Nav.Link href="#pricing">Blog</Nav.Link>
-                    <Nav.Link href="#pricing">Contact</Nav.Link>
+                    <Link className="nav-link" to="/news">News</Link>
+                    <Link className="nav-link" to="/destination">Destination</Link>
+                    <Link className="nav-link" to="/blog">Blog</Link>
+                    <Link className="nav-link" to="/contact">Contact</Link>
                     <Button>Login</Button>
                 </Nav>
 
             </Navbar>
-        </Container>
+        </Container >
 
     );
 };

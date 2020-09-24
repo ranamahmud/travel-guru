@@ -9,6 +9,7 @@ import {
 // import NotFound from './components/NotFound/NotFound';
 
 import { useState } from 'react';
+import Home from './components/pages/Home/Home';
 // import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
@@ -34,14 +35,15 @@ function App() {
           {/* <PrivateRoute path="/shipment">
             <Shipment></Shipment>
           </PrivateRoute>
-          <Route exact path="/">    <Shop></Shop>
-          </Route>
+         
           <Route path="/product/:productkey">
             <ProductDetail></ProductDetail>
           </Route>
           <Route path="*">
             <NotFound />
           </Route> */}
+          <Route exact path="/">    <Home></Home>
+          </Route>
         </Switch>
 
 
