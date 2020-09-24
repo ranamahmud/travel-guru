@@ -48,6 +48,8 @@ function Login() {
 
     const handleResponse = (res, redirect) => {
         setUser(res);
+        console.log("logged in user 51");
+        console.log(res);
         setLoggedInUser(res);
         if (redirect) {
             history.replace(from);
@@ -108,7 +110,7 @@ function Login() {
 
 
     return (
-        <Container>
+        <Container id="login-form">
 
             {/*
             <br />
@@ -142,7 +144,7 @@ function Login() {
                 user.success &&
                 <p style={{ color: 'green' }}>User  {newUser ? 'craeted' : 'Logged in'} successfully</p>
             } */}
-            <Form id="login-form" onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit}>
                 <h3>Login</h3>
                 <Form.Group controlId="email">
                     <Form.Control type="email" placeholder="Username or Email" onBlur={handleBlur} required />
@@ -157,14 +159,15 @@ function Login() {
                 <Button variant="primary" type="submit">
                     Login
   </Button>
-                <br />
-                <br />
-                <p>Don't have an account? <Link to="/create-account">Create an account</Link></p>
-                <p id="or"><span>or</span></p>
-                <Button><img src={fb} onClick={fbSignIn} className="company-icon" />Continue with Facebook</Button>
-                <br />
-                <Button><img src={google} onClick={googleSignIn} className="company-icon" />Continue with Google</Button>
+
             </Form>
+            <br />
+            <br />
+            <p>Don't have an account? <Link to="/create-account">Create an account</Link></p>
+            <p id="or"><span>or</span></p>
+            <Button><img src={fb} onClick={fbSignIn} className="company-icon" />Continue with Facebook</Button>
+            <br />
+            <Button><img src={google} onClick={googleSignIn} className="company-icon" />Continue with Google</Button>
         </Container>
     );
 }
