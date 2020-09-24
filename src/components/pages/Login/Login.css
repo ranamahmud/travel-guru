@@ -1,0 +1,31 @@
+#login-form {
+    position: absolute;
+    width: 570px;
+    height: 457px;
+    left: 438px;
+    top: 171px;
+
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ABABAB;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+#or {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+
+#or span {
+    background: #fff;
+    padding: 0 10px;
+}
+
+.company-icon {
+    width: 37px;
+    height: 37px;
+}
