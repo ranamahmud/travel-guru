@@ -9,11 +9,11 @@
     font-family: Bebas Neue;
     font-style: normal;
     font-weight: normal;
-    font-size: 60px;
+    font-size: 40px;
 }
 
 .carousel-caption p {
-    width: 455px;
+    width: 400px;
     height: 80px;
     font-family: Montserrat;
     font-style: normal;
@@ -21,4 +21,20 @@
     font-size: 16px;
     line-height: 24px;
     text-align: justify;
+}
+
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px 0px 0px 29px;
+
+    position: relative;
+    width: 161px;
+    height: 48px;
+    /* left: 135px; */
+    top: 10px;
+
+    background: #F9A51A;
+    border-radius: 5px;
 }
