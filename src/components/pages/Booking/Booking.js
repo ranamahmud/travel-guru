@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import "./Booking.css";
 
@@ -48,9 +49,7 @@ const Booking = () => {
 
 
 
-                        <Button variant="primary" type="submit">
-                            Start Booking
-  </Button>
+                        <Link to="/search">Start Booking</Link>
                     </Form>
                 </Col>
             </Row>

@@ -2,6 +2,7 @@ import GoogleMapReact from 'google-map-react';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { key } from '../../../key';
+import './Map.css'
 const AnyReactComponent = ({ text }) => (
     <div style={{
         color: 'white',
@@ -23,7 +24,7 @@ const Map = () => {
         zoom: 11
     };
     return (
-        <Container>
+        <Container id="map">
             {/* <GoogleMapReact
                 bootstrapURLKeys={key}
 

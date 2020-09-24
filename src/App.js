@@ -14,7 +14,7 @@ import Login from './components/pages/Auth/Login/Login';
 import CreateAccount from './components/pages/Auth/CreateAccount/CreateAccount';
 import Search from './components/pages/Search/Search';
 import Booking from './components/pages/Booking/Booking';
-// import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export const UserContext = createContext();
 function App() {
@@ -49,7 +49,11 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/create-account" component={CreateAccount} />
-          <Route path="/search" component={Search} />
+          {/* <PrivateRoute path="/search" component={Search} /> */}
+          <PrivateRoute path="/search">
+            <Search></Search>
+          </PrivateRoute>
+
           <Route path="/booking" component={Booking} />
 
         </Switch>

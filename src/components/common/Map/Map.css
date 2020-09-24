@@ -1,0 +1,11 @@
+#map {
+    /* position: absolute; */
+    width: 500px;
+    height: 702px;
+    left: 805px;
+    top: 171px;
+    border-radius: 1px solid red;
+
+    /* background: url(image.png); */
+    border-radius: 13px;
+}
