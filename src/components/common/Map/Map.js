@@ -1,4 +1,4 @@
-import googleMapReact from 'google-map-react';
+import GoogleMapReact from 'google-map-react';
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import { key } from '../../../key';
@@ -24,7 +24,7 @@ const Map = () => {
     };
     return (
         <Container>
-            <googleMapReact
+            {/* <GoogleMapReact
                 bootstrapURLKeys={key}
 
                 defaultCenter={defaultProps.center}
@@ -35,7 +35,21 @@ const Map = () => {
                     lng={30.337844}
                     text={'Kreyser Avrora'}
                 />
-            </googleMapReact>
+            </GoogleMapReact> */}
+
+            <div style={{ height: '100vh', width: '100%' }}>
+                <GoogleMapReact
+                    bootstrapURLKeys={{ key: key }}
+                    defaultCenter={defaultProps.center}
+                    defaultZoom={defaultProps.zoom}
+                >
+                    <AnyReactComponent
+                        lat={59.955413}
+                        lng={30.337844}
+                        text="My Marker"
+                    />
+                </GoogleMapReact>
+            </div>
         </Container>
     );
 };
