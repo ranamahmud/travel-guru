@@ -7,21 +7,30 @@ function Location(props) {
         <div>
             <CardGroup>
                 <Card>
-                    <Link to="/booking">
+                    <Link to="/booking/cox-bazar">
                         <Card.Img variant="top" src={require('../../../images/image/Rectangle 1.png')} />
+                        <p className="bottom-center">Cox's bazar</p>
+
                     </Link>
-                    <p className="bottom-center">Cox's bazar</p>
 
 
                 </Card>
                 <Card>
-                    <Card.Img variant="top" src={require('../../../images/image/Rectangle 26.png')} />
-                    <Card.Title className="bottom-center">Cox's bazar</Card.Title>
+                    <Link to="/booking/sreemongol">
+                        <Card.Img variant="top" src={require('../../../images/image/Rectangle 26.png')} />
+                        <p className="bottom-center">Sreemongol</p>
+
+                    </Link>
+
 
                 </Card>
                 <Card>
-                    <Card.Img variant="top" src={require('../../../images/image/Rectangle 27.png')} />
-                    <Card.Title className="bottom-center">Cox's bazar</Card.Title>
+                    <Link to="/booking/sundorbon">
+                        <Card.Img variant="top" src={require('../../../images/image/Rectangle 27.png')} />
+                        <p className="bottom-center">Sundorbon</p>
+
+                    </Link>
+
 
                 </Card>
             </CardGroup>

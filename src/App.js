@@ -15,6 +15,7 @@ import CreateAccount from './components/pages/Auth/CreateAccount/CreateAccount';
 import Search from './components/pages/Search/Search';
 import Booking from './components/pages/Booking/Booking';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import NotFound from './components/NotFound/NotFound';
 
 export const UserContext = createContext();
 function App() {
@@ -25,27 +26,7 @@ function App() {
         <Header />
 
         <Switch>
-          {/* <Route path="/shop">    <Shop></Shop>
-          </Route>
-          <Route path="/review">
-            <Review></Review>
-          </Route> */}
-          {/* <PrivateRoute path="/orders">
-            <Inventory></Inventory>
-          </PrivateRoute> */}
-          {/* <Route path="/login">
-            <Login></Login>
-          </Route> */}
-          {/* <PrivateRoute path="/shipment">
-            <Shipment></Shipment>
-          </PrivateRoute>
-         
-          <Route path="/product/:productkey">
-            <ProductDetail></ProductDetail>
-          </Route>
-          <Route path="*">
-            <NotFound />
-          </Route> */}
+
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
           <Route path="/create-account" component={CreateAccount} />
@@ -54,8 +35,11 @@ function App() {
             <Search></Search>
           </PrivateRoute>
 
-          <Route path="/booking" component={Booking} />
+          <Route path="/booking/:place" component={Booking} />
 
+          <Route path="*">
+            <NotFound />
+          </Route>
         </Switch>
 
 
