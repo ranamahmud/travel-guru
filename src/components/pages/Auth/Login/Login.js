@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Button, Container, Form } from 'react-bootstrap';
+import { Alert, Button, Container, Form } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../../App';
 // import { handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../Auth/LoginManager';
@@ -48,10 +48,11 @@ function Login() {
 
     const handleResponse = (res, redirect) => {
         setUser(res);
-        console.log("logged in user 51");
-        console.log(res);
         setLoggedInUser(res);
-        if (redirect) {
+
+        if (redirect && res.success === true) {
+            console.log("button clicked");
+            console.log(user.email, user.password)
             history.replace(from);
         }
     }
@@ -64,8 +65,7 @@ function Login() {
             })
     }
     const handleBlur = (e) => {
-        console.log("64")
-        console.log(e.target.value);
+
         let isFieldValid = true;
 
         if (e.target.id === 'email') {
@@ -80,12 +80,13 @@ function Login() {
             const newUserInfo = { ...user };
             newUserInfo[e.target.id] = e.target.value;
             setUser(newUserInfo);
+            console.log(e.target.id);
+            console.log(e.target.value);
         }
     }
 
     const handleSubmit = (e) => {
-        console.log("button clicked");
-        console.log(user.email, user.password)
+
         // if (user.email && user.password) {
         //     createUserWithEmailAndPassword(user.name, user.email, user.password)
         //         .then(res => {
@@ -111,6 +112,11 @@ function Login() {
 
     return (
         <Container id="login-form">
+            {
+                loggedInUser.error && <Alert variant='danger'>
+                    {loggedInUser.error}
+                </Alert>
+            }
 
             {/*
             <br />

@@ -7,6 +7,7 @@ import logo from '../../images/logo.png'
 import './Header.css'
 const Header = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    console.log(loggedInUser);
     return (
 
         <Container>
@@ -26,9 +27,10 @@ const Header = () => {
                     <Link className="nav-link" to="/blog">Blog</Link>
                     <Link className="nav-link" to="/contact">Contact</Link>
                     {
-                        loggedInUser.isSignedIn !== true ?
-                            <Link id="login-btn" className="nav-link btn" to="/login">Login</Link> :
+                        loggedInUser.email && loggedInUser.email.length > 0 ?
                             <button onClick={() => setLoggedInUser({})}>Sign Out</button>
+                            :
+                            <Link id="login-btn" className="nav-link btn" to="/login">Login</Link>
                     }
                 </Nav>
 
