@@ -11,9 +11,7 @@ const Header = () => {
     return (
 
         <Container>
-            {
-                <p>Email: {loggedInUser.email}</p>
-            }
+
             <Navbar bg="light" variant="light">
                 <Navbar.Brand href="#home">
                     <Link to="/"><img id="logo" src={logo} alt="" /></Link>

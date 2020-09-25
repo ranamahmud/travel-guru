@@ -58,6 +58,7 @@ function Login() {
     }
 
     const fbSignIn = () => {
+        console.log("fb signin clicked");
         handleFbSignIn()
             .then(res => {
                 handleResponse(res, true);
@@ -171,15 +172,21 @@ function Login() {
                 <Button id="form-login-btn" type="submit">
                     Login
   </Button>
+                <p className="d-flex justify-content-center">Don't have an account? <Link to="/create-account">Create an account</Link></p>
 
             </Form>
-            <br />
-            <br />
-            <p>Don't have an account? <Link to="/create-account">Create an account</Link></p>
             <p id="or"><span>or</span></p>
-            <Button><img src={fb} onClick={fbSignIn} className="company-icon" />Continue with Facebook</Button>
-            <br />
-            <Button><img src={google} onClick={googleSignIn} className="company-icon" />Continue with Google</Button>
+
+            <div className="d-flex justify-content-center continue-btn-container">
+
+                <button className="continue-btn" onClick={fbSignIn} ><img src={fb} className="company-icon" />Continue with Facebook</button>
+                <br />
+
+            </div>
+            <div className="d-flex justify-content-center">
+
+                <button className="continue-btn" onClick={googleSignIn} ><img src={google} className="company-icon" />Continue with Google</button>
+            </div>
         </Container>
     );
 }
