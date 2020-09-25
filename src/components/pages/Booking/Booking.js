@@ -34,13 +34,6 @@ const Booking = () => {
                             <Form.Control type="date" />
                         </Form.Group>
 
-                        {/* <label for="start">From </label>
-                        <input type="date" id="start" name="birthday" />
-
-                        <label for="end">To </label>
-                        <input type="date" id="end" name="birthday" /> */}
-
-
                         <Form.Group controlId="formBasicCheckbox">
                             <Form.Check type="checkbox" label="Check me out" />
                         </Form.Group>
