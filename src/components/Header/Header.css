@@ -11,3 +11,15 @@
     box-sizing: border-box;
     border-radius: 5px;
 }
+
+#login-btn {
+    /* display: flex; */
+    /* flex-direction: row; */
+    width: 104px;
+    height: 44px;
+    background: #F9A51A;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+
+}

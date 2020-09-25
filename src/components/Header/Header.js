@@ -27,7 +27,7 @@ const Header = () => {
                     <Link className="nav-link" to="/contact">Contact</Link>
                     {
                         loggedInUser.isSignedIn !== true ?
-                            <Link className="nav-link btn" to="/login">Login</Link> :
+                            <Link id="login-btn" className="nav-link btn" to="/login">Login</Link> :
                             <button onClick={() => setLoggedInUser({})}>Sign Out</button>
                     }
                 </Nav>
