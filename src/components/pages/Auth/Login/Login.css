@@ -1,15 +1,16 @@
 #login-form {
-    position: absolute;
+    /* position: absolute; */
     width: 570px;
     height: 457px;
     left: 438px;
-    top: 171px;
+    top: 100px;
 
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid #ABABAB;
     box-sizing: border-box;
     border-radius: 4px;
     padding: 10px;
+    /* margin-bottom: 50px; */
 }
 
 #login-form h3 {
@@ -25,6 +26,8 @@
     font-size: 24px;
     line-height: 29px;
     color: #000000;
+    margin-bottom: 15px;
+    ;
 }
 
 #or {
@@ -33,7 +36,7 @@
     border-bottom: 1px solid #000;
     line-height: 0.1em;
     margin: 10px 0 20px;
-    padding-top: 150px;
+    padding-top: 65px;
 }
 
 #or span {
@@ -55,6 +58,7 @@
 
     text-align: center;
     line-height: 45px;
+    padding-bottom: 20px;
 }
 
 
@@ -93,4 +97,8 @@
 
 #forget-password:hover {
     cursor: pointer;
+}
+
+#login-form input {
+    margin-bottom: 50px;
 }

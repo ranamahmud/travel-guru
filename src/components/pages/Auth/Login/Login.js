@@ -61,6 +61,7 @@ function Login() {
         console.log("fb signin clicked");
         handleFbSignIn()
             .then(res => {
+                console.log(res);
                 handleResponse(res, true);
 
             })
@@ -112,14 +113,18 @@ function Login() {
 
 
     return (
-        <Container id="login-form">
+
+        <Container>
             {
-                loggedInUser.error && <Alert variant='danger'>
-                    {loggedInUser.error}
-                </Alert>
+                // loggedInUser.error && <Alert variant='danger'>
+                //     {loggedInUser.error}
+                // </Alert>
             }
 
-            {/*
+            < Container id="login-form" >
+
+
+                {/*
             <br />
             <button onClick={fbSignIn}>Sign in Using Facebook</button>
             {
@@ -151,42 +156,44 @@ function Login() {
                 user.success &&
                 <p style={{ color: 'green' }}>User  {newUser ? 'craeted' : 'Logged in'} successfully</p>
             } */}
-            <Form onSubmit={handleSubmit}>
-                <h3>Login</h3>
-                <Form.Group controlId="email">
-                    <Form.Control type="email" placeholder="Username or Email" onBlur={handleBlur} required />
-                </Form.Group>
-
-                <Form.Group controlId="password">
-                    <Form.Control type="password" placeholder="Password" onBlur={handleBlur} required />
-                </Form.Group>
-                <Form.Group>
-                    <Form.Group style={{ display: 'inline-block' }} controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Remember Me" />
+                <Form onSubmit={handleSubmit} >
+                    <h3>Login</h3>
+                    <Form.Group controlId="email">
+                        <Form.Control type="email" placeholder="Username or Email" onBlur={handleBlur} required />
                     </Form.Group>
-                    <a href="#" id="forget-password" onClick={() => resetPassword(user.email)}>Forgot Password</a>
+
+                    <Form.Group controlId="password">
+                        <Form.Control type="password" placeholder="Password" onBlur={handleBlur} required />
+                    </Form.Group>
+                    <Form.Group>
+                        <Form.Group style={{ display: 'inline-block' }} controlId="formBasicCheckbox">
+                            <Form.Check type="checkbox" label="Remember Me" />
+                        </Form.Group>
+                        <a href="#" id="forget-password" onClick={() => resetPassword(user.email)}>Forgot Password</a>
 
 
-                </Form.Group>
+                    </Form.Group>
 
-                <Button id="form-login-btn" type="submit">
-                    Login
+                    <Button id="form-login-btn" type="submit">
+                        Login
   </Button>
-                <p className="d-flex justify-content-center">Don't have an account? <Link to="/create-account">Create an account</Link></p>
+                    <p className="d-flex justify-content-center">Don't have an account? <Link to="/create-account">Create an account</Link></p>
 
-            </Form>
-            <p id="or"><span>or</span></p>
+                </Form >
+                <p id="or"><span>or</span></p>
 
-            <div className="d-flex justify-content-center continue-btn-container">
+                <div className="d-flex justify-content-center continue-btn-container">
 
-                <button className="continue-btn" onClick={fbSignIn} ><img src={fb} className="company-icon" />Continue with Facebook</button>
-                <br />
+                    <button className="continue-btn" onClick={fbSignIn} ><img src={fb} className="company-icon" />Continue with Facebook</button>
+                    <br />
 
-            </div>
-            <div className="d-flex justify-content-center">
+                </div>
+                <div className="d-flex justify-content-center">
 
-                <button className="continue-btn" onClick={googleSignIn} ><img src={google} className="company-icon" />Continue with Google</button>
-            </div>
+                    <button className="continue-btn" onClick={googleSignIn} ><img src={google} className="company-icon" />Continue with Google</button>
+                </div>
+            </Container >
+
         </Container>
     );
 }
