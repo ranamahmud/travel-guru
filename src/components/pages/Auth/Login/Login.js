@@ -38,14 +38,6 @@ function Login() {
             })
     }
 
-    // const signOut = () => {
-    //     handleSignOut()
-    //         .then(res => {
-    //             handleResponse(res, false);
-
-    //         })
-    // }
-
     const handleResponse = (res, redirect) => {
         setUser(res);
         setLoggedInUser(res);
@@ -124,38 +116,7 @@ function Login() {
             < Container id="login-form" >
 
 
-                {/*
-            <br />
-            <button onClick={fbSignIn}>Sign in Using Facebook</button>
-            {
-                user.isSignedIn &&
-                <div>
-                    <p>Welcome, {user.name}</p>
-                    <p>Your email: {user.email}</p>
-                    <img src={user.photo} alt="" />
-                </div>
-            }
 
-            <h1>Our own Authentication</h1>
-            <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
-            <label htmlFor="newUser">New User Sign Up</label>
-
-            <form onSubmit={handleSubmit}>
-                {
-                    newUser && <input type="text" name="name" onBlur={handleBlur} id="" placeholder="Your name" required />
-                }
-                <br />
-                <input type="text" name="email" onBlur={handleBlur} placeholder="Your email address" required />
-                <br />
-                <input type="password" name="password" onBlur={handleBlur} placeholder="Password" required />
-                <br />
-                <input type="submit" value={newUser ? "Sign Up" : "Sign In"} />
-            </form>
-            <p style={{ color: 'red' }}>{user.error}</p>
-            {
-                user.success &&
-                <p style={{ color: 'green' }}>User  {newUser ? 'craeted' : 'Logged in'} successfully</p>
-            } */}
                 <Form onSubmit={handleSubmit} >
                     <h3>Login</h3>
                     <Form.Group controlId="email">

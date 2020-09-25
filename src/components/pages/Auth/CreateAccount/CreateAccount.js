@@ -114,77 +114,52 @@ function CreateAccount() {
 
     return (
         <Container>
-            {/* {
-                user.isSignedIn === true ?
-                    <button onClick={signOut}>Sign Out</button> :
-                    <button onClick={googleSignIn}>Sign in</button>
+            <Container id="create-form">
 
-            }
-            <br />
-            <button onClick={fbSignIn}>Sign in Using Facebook</button>
-            {
-                user.isSignedIn &&
-                <div>
-                    <p>Welcome, {user.name}</p>
-                    <p>Your email: {user.email}</p>
-                    <img src={user.photo} alt="" />
-                </div>
-            }
-
-            <h1>Our own Authentication</h1>
-            <input type="checkbox" onChange={() => setNewUser(!newUser)} name="newUser" id="" />
-            <label htmlFor="newUser">New User Sign Up</label>
-
-            <form onSubmit={handleSubmit}>
-                {
-                    newUser && <input type="text" name="name" onBlur={handleBlur} id="" placeholder="Your name" required />
-                }
-                <br />
-                <input type="text" name="email" onBlur={handleBlur} placeholder="Your email address" required />
-                <br />
-                <input type="password" name="password" onBlur={handleBlur} placeholder="Password" required />
-                <br />
-                <input type="submit" value={newUser ? "Sign Up" : "Sign In"} />
-            </form>
-            <p style={{ color: 'red' }}>{user.error}</p>
-            {
-                user.success &&
-                <p style={{ color: 'green' }}>User  {newUser ? 'craeted' : 'Logged in'} successfully</p>
-            } */}
-            <Form id="login-form" onSubmit={handleSubmit}>
-                <h3>Create an account</h3>
-                <Form.Group controlId="firstName">
-                    <Form.Control type="text" placeholder="First Name" onBlur={handleBlur} required />
-                </Form.Group>
-                <Form.Group controlId="lastName">
-                    <Form.Control type="text" placeholder="Last Name" onBlur={handleBlur} required />
-                </Form.Group>
+                <Form onSubmit={handleSubmit}>
+                    <h3>Create an account</h3>
+                    <Form.Group controlId="firstName">
+                        <Form.Control type="text" placeholder="First Name" onBlur={handleBlur} required />
+                    </Form.Group>
+                    <Form.Group controlId="lastName">
+                        <Form.Control type="text" placeholder="Last Name" onBlur={handleBlur} required />
+                    </Form.Group>
 
 
-                <Form.Group controlId="email">
-                    <Form.Control type="email" placeholder="Username or Email" onBlur={handleBlur} required />
-                </Form.Group>
+                    <Form.Group controlId="email">
+                        <Form.Control type="email" placeholder="Username or Email" onBlur={handleBlur} required />
+                    </Form.Group>
 
-                <Form.Group controlId="password">
-                    <Form.Control type="password" placeholder="Password" onBlur={handleBlur} required />
-                </Form.Group>
+                    <Form.Group controlId="password">
+                        <Form.Control type="password" placeholder="Password" onBlur={handleBlur} required />
+                    </Form.Group>
 
-                <Form.Group controlId="passwordConfirm">
-                    <Form.Control type="password" placeholder="Confirm Password" onBlur={handleBlur} required />
-                </Form.Group>
+                    <Form.Group controlId="passwordConfirm">
+                        <Form.Control type="password" placeholder="Confirm Password" onBlur={handleBlur} required />
+                    </Form.Group>
 
-                <Button variant="primary" type="submit">
-                    Create an account
+                    <Button id="form-create-btn" type="submit">
+                        Create an account
   </Button>
-                <br />
-                <br />
-                <p>Already have an account?<Link to="/login">Login</Link></p>
-                <p id="or"><span>or</span></p>
-                <Button onClick={handleFbSignIn}><img src={fb} className="company-icon" />Continue with Facebook</Button>
-                <br />
-                <Button onClick={googleSignIn}><img src={google} className="company-icon" />Continue with Google</Button>
-            </Form>
-        </Container>
+                    <br />
+                    <br />
+                    <p className="d-flex justify-content-center">Already have an account?<Link id="already-login" to="/login">Login</Link></p>
+                    <p id="or"><span>or</span></p>
+
+
+                    <div className="d-flex justify-content-center continue-btn-container">
+
+                        <button className="continue-btn" onClick={fbSignIn} ><img src={fb} className="company-icon" />Continue with Facebook</button>
+                        <br />
+
+                    </div>
+                    <div className="d-flex justify-content-center">
+
+                        <button className="continue-btn" onClick={googleSignIn} ><img src={google} className="company-icon" />Continue with Google</button>
+                    </div>
+                </Form>
+            </Container>
+        </Container >
     );
 }
 

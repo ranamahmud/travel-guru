@@ -1,0 +1,69 @@
+#create-form {
+    padding: 10px;
+    /* margin-bottom: 50px; */
+    width: 570px;
+    height: 510px;
+    top: 130px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid #ABABAB;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+#create-form h3 {
+    /* position: absolute; */
+    height: 29px;
+    left: 34.24%;
+    right: 60.83%;
+    top: 208.03px;
+    padding: 30px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 29px;
+
+    color: #000000;
+    margin-bottom: 15px;
+    ;
+}
+
+#or {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+    padding-top: 10px;
+}
+
+#form-create-btn {
+    display: flex;
+    width: 461px;
+    height: 50px;
+    left: 493px;
+    background: #F9A51A;
+    display: block;
+    margin: 0 auto;
+}
+
+#already-login {
+    height: 20px;
+    left: 57.64%;
+    right: 32.85%;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration-line: underline;
+    color: #F9A51A;
+}
+
+#forget-password:hover {
+    cursor: pointer;
+}
+
+#create-form input {
+    margin-bottom: 20px;
+}
