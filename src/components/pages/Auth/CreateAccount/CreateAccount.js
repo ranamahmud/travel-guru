@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 // import { UserContext } from '../../App';
-import { useHistory, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../../App';
 // import { handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../LoginManager';
 import fb from "../../../../images/icon/fb.png";
@@ -178,7 +178,7 @@ function CreateAccount() {
   </Button>
                 <br />
                 <br />
-                <p>Already have an account?<a href="#">Login</a></p>
+                <p>Already have an account?<Link to="/login">Login</Link></p>
                 <p id="or"><span>or</span></p>
                 <Button onClick={handleFbSignIn}><img src={fb} className="company-icon" />Continue with Facebook</Button>
                 <br />
