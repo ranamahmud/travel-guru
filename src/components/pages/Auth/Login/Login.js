@@ -7,7 +7,7 @@ import { UserContext } from '../../../../App';
 // import { handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../Auth/LoginManager';
 import fb from "../../../../images/icon/fb.png";
 import google from "../../../../images/icon/google.png"
-import { createUserWithEmailAndPassword, handleFbSignIn, handleGoogleSignIn, initializeLoginFramework, signInWithEmailAndPassword } from '../LoginManager';
+import { createUserWithEmailAndPassword, resetPassword, handleFbSignIn, handleGoogleSignIn, initializeLoginFramework, signInWithEmailAndPassword } from '../LoginManager';
 import "./Login.css"
 function Login() {
     let history = useHistory();
@@ -159,9 +159,15 @@ function Login() {
                 <Form.Group controlId="password">
                     <Form.Control type="password" placeholder="Password" onBlur={handleBlur} required />
                 </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Remember Me" />
+                <Form.Group>
+                    <Form.Group style={{ display: 'inline-block' }} controlId="formBasicCheckbox">
+                        <Form.Check type="checkbox" label="Remember Me" />
+                    </Form.Group>
+                    <a href="#" id="forget-password" onClick={() => resetPassword(user.email)}>Forgot Password</a>
+
+
                 </Form.Group>
+
                 <Button id="form-login-btn" type="submit">
                     Login
   </Button>

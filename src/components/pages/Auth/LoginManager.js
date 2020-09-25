@@ -129,3 +129,18 @@ const verifyEmail = () => {
         // An error happened.
     });
 }
+
+
+export const resetPassword = email => {
+    console.log("forget email: " + email);
+    var auth = firebase.auth();
+    if (email !== "") {
+        auth.sendPasswordResetEmail(email).then(function () {
+            // Email sent.
+
+        }).catch(function (error) {
+            // An error happened.
+        });
+    }
+
+}
