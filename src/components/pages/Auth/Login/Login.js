@@ -1,10 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Alert, Button, Container, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import { UserContext } from '../../../../App';
-// import { handleFbSignIn, handleGoogleSignIn, handleSignOut, initializeLoginFramework, createUserWithEmailAndPassword, signInWithEmailAndPassword } from '../Auth/LoginManager';
 import fb from "../../../../images/icon/fb.png";
 import google from "../../../../images/icon/google.png"
 import { createUserWithEmailAndPassword, resetPassword, handleFbSignIn, handleGoogleSignIn, initializeLoginFramework, signInWithEmailAndPassword } from '../LoginManager';
@@ -27,7 +26,7 @@ function Login() {
 
     initializeLoginFramework();
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-
+    setLoggedInUser(user);
     const googleSignIn = () => {
         console.log("google clicked")
         handleGoogleSignIn()
@@ -80,14 +79,6 @@ function Login() {
     }
 
     const handleSubmit = (e) => {
-
-        // if (user.email && user.password) {
-        //     createUserWithEmailAndPassword(user.name, user.email, user.password)
-        //         .then(res => {
-        //             handleResponse(res, true);
-
-        //         })
-        // }
 
         if (user.email && user.password) {
             signInWithEmailAndPassword(user.email, user.password)
@@ -151,7 +142,7 @@ function Login() {
                 </div>
                 <div className="d-flex justify-content-center">
 
-                    <button className="continue-btn" onClick={googleSignIn} ><img src={google} className="company-icon" />Continue with Google</button>
+                    <button className="continue-btn" onClick={() => googleSignIn} ><img src={google} className="company-icon" />Continue with Google</button>
                 </div>
             </Container >
 
